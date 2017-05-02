@@ -1,0 +1,1 @@
+require('./appsource/app.js');

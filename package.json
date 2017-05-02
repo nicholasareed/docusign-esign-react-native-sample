@@ -1,0 +1,39 @@
+{
+  "name": "DocuSignReactNativeSample",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "base-64": "^0.1.0",
+    "docusign-esign-react-native": "0.0.1",
+    "firebase": "^3.7.6",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4",
+    "react": "16.0.0-alpha.6",
+    "react-native": "0.43.3",
+    "react-native-actionsheet": "^2.1.0",
+    "react-native-document-picker": "git+https://github.com/devshackio/react-native-document-picker.git",
+    "react-native-elements": "^0.10.3",
+    "react-native-fetch-blob": "git+https://github.com/wkh237/react-native-fetch-blob.git#issue-287",
+    "react-native-file-picker": "git+https://github.com/nicholasareed/react-native-file-picker.git",
+    "react-native-keyboard-spacer": "^0.3.1",
+    "react-native-root-toast": "^1.0.5",
+    "react-native-storage": "^0.1.5",
+    "react-native-vector-icons": "^4.0.1",
+    "react-navigation": "git+https://github.com/react-community/react-navigation.git#7edd9a7",
+    "reflux": "^6.4.1",
+    "url-parse": "^1.1.8"
+  },
+  "devDependencies": {
+    "babel-jest": "19.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "19.0.2",
+    "react-test-renderer": "16.0.0-alpha.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

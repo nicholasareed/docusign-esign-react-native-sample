@@ -1,0 +1,11 @@
+{
+  "internal_client_id": "",
+  "username": "email-is-@-here",
+  "password": "",
+  "esign_api_host": "https://demo.docusign.net/restapi",
+
+  "recipient_email": "",
+
+  "oauth_client_id": "",
+  "oauth_host": "https://account-d.docusign.com"
+}
