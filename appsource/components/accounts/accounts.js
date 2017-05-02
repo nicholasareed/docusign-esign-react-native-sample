@@ -63,20 +63,17 @@ export default class AccountsScreen extends React.Component {
 
     // login has some optional parameters we can set
     var loginOps = {};
-    loginOps.apiPassword = 'true';
-    loginOps.includeAccountIdGuid = 'true';
+    loginOps.api_password = 'true';
+    loginOps.include_account_id_guid = 'true';
 
 
     this.setState({
       trying: true
     });
-    // alert(typeof DSBridge);
-    // return;
-
 
     authApi.login(loginOps, (err, loginInfo, response) => {
       if(err){
-        alert('ERROR!');
+        alert('ERROR! ' + JSON.stringify(response.status));
         return;
       }
 
@@ -212,10 +209,6 @@ export default class AccountsScreen extends React.Component {
     // var accountId = account.accountId;
     // global.accountId = accountId;
 
-    // var config = DSBridge.getApiClientConfig();
-    // config.host = host;
-    // DSBridge.setApiClient(config);
-
     // initialize the api client
 
     var accountId = account.accountId;
@@ -229,7 +222,7 @@ export default class AccountsScreen extends React.Component {
     // alert(JSON.stringify(account));
     // return;
     var envDef = {};
-    envDef.emailSubject = "DocuSign API - React Native Test9";
+    envDef.emailSubject = "DocuSign API - React Native Test";
     envDef.status = "sent"; // comment out for "draft" or "created" status (not sent)
     envDef.recipients = {};
 
@@ -283,17 +276,6 @@ export default class AccountsScreen extends React.Component {
       }
       console.log('EnvelopeSummary: ' + JSON.stringify(envelopeInfo));
 
-    // DSBridge.EnvelopesApi.createEnvelope(accountId, envDef, params, (err, envelopeInfo) => {
-    //   if(err){
-    //     alert('Envelope error! ' + JSON.stringify(err));
-    //     return;
-    //   }
-
-      // alert('Sent envelope');
-      // alert(typeof envelopeInfo + ' ' + JSON.stringify(envelopeInfo));
-
-      // alert(JSON.stringify(envelopeInfo));
-
       var envelopeId = envelopeInfo.envelopeId;
 
       var returnUrl = {};
@@ -306,16 +288,11 @@ export default class AccountsScreen extends React.Component {
 
       Toast.show('Getting Signing View');
 
-      // alert(accountId + ' ' + envelopeId + ' ' + JSON.stringify(returnUrl));
-      // return;
-
       var envelopesApi = new docusign.EnvelopesApi();
-      envelopesApi.createRecipientView(accountId, envelopeId, {recipientViewRequest:returnUrl}, (err, returnUrlResponse) => {
+      envelopesApi.createRecipientView(accountId, envelopeId, {recipientViewRequest:returnUrl}, (err, returnUrlResponse, response) => {
         if(err){
-          // alert('returnUrlResponse error! ' + JSON.stringify(err));
-          // alert(JSON.stringify(Object.keys(err)));
-          alert(JSON.stringify(err.response));
-          // throw err;
+          alert('Error: ' + response.status);
+          console.error(err);
           return;
         }
 
@@ -333,57 +310,12 @@ export default class AccountsScreen extends React.Component {
 
       });
 
-      // // alert('Got Folders! ' + JSON.stringify(folders));
-      // alert('Got Folders! ' + _.map(folders.folders,'name') + _.map(folders.folders,'folderId'));
-
-      // var folderId = _.find(folders.folders,{name:'Sent Items'}).folderId;
-      // DSBridge.foldersApi_listFolderItems(accountId, folderId, function(err, items){
-      //   if(err){
-      //     alert('folder items error!');
-      //     return;
-      //   }
-
-      //   // // alert('Got Folders! ' + _.map(folders.folders,'name') + _.map(folders.folders,'folderId'));
-      //   // alert('Got folder items:' + (typeof items));
-      //   // alert(items.length);
-      //   alert(JSON.stringify(items.folderItems));
-        
-      // })
-
     })
-
-
-    // this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'Home', params: {
-    //   accountId: account.accountId
-    // }}) );
-
-
-    // alert(typeof item);
-    // alert(Object.keys(item));
-    // alert(item.title);
-    // alert(Object.keys(event));
-    // alert(typeof event);
-    // alert(i);
-    // console.log(event);
 
   }
 
   render() {
     var self = this;
-
-    // const accounts = [
-    //   {
-    //     accountId: '1882545',
-    //     baseUrl: 'https://demo.docusign.net/restapi',
-    //     title: 'Default Account',
-    //     subtitle: 'Default Account'
-    //   },
-    //   {
-    //     accountId: '1882545',
-    //     baseUrl: 'https://demo.docusign.net/restapi',
-    //     title: 'Account2'
-    //   }
-    // ]
 
     return (
       <View>

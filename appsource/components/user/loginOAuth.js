@@ -92,11 +92,18 @@ export default class loginOAuthScreen extends React.Component {
 
       var token = tokenUrl.query.access_token;
 
-      var tokenConfig = {
-        token: token,
-        host: oauth_hostoauth_host
-      };
-      DSBridge.setApiClient(tokenConfig);
+      // var tokenConfig = {
+      //   token: token,
+      //   host: oauth_hostoauth_host
+      // };
+      // DSBridge.setApiClient(tokenConfig);
+
+
+      // initialize the api client
+      var apiClient = new docusign.ApiClient();
+      apiClient.setBasePath(__config.esign_api_host);
+      apiClient.addDefaultHeader('Authorization', 'Bearer ' + token);
+      docusign.Configuration.default.setDefaultApiClient(apiClient);
 
       this.setState({
         left: true
