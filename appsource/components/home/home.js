@@ -7,18 +7,18 @@ import {
   Switch,
   Image,
   View,
+  ScrollView
 } from 'react-native';
 
 import { List, ListItem } from 'react-native-elements'
 
 import { NavigationActions } from 'react-navigation'
 
-// const loginReset = NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'Login'})
-//   ]
-// })
+
+import SendEnvelopeFromDocument from './SendEnvelopeFromDocument';
+import SendEnvelopeFromDocuments from './SendEnvelopeFromDocuments';
+import ViewFolder from './ViewFolder';
+
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -28,53 +28,51 @@ export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      accountId: props.navigation.state.params.accountId
+      account: props.navigation.state.params.account
     }
-    this.handlePress = this.handlePress.bind(this);
+
+    this.handleViewFolder = this.handleViewFolder.bind(this);
+    this.handleSendEnvelopeFromTemplate = this.handleSendEnvelopeFromTemplate.bind(this);
   }
 
-  componentDidMount(){
-    // alert(this.props.navigation.state.params.accountId);
+  handleViewFolder(){
+
+    this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'ViewFolders', params: {
+      account: this.state.account
+    }}) );
+
   }
 
-  handlePress(item){
+  handleSendEnvelopeFromTemplate(){
 
-    this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'SendForm', params: {
-      accountId: this.state.accountId
+    this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'SendEnvelopeFromTemplate', params: {
+      account: this.state.account
     }}) );
 
   }
 
   render() {
 
-
-    const list = [
-      {
-        title: 'Send Envelope from Document'
-      },
-      {
-        title: 'Send Envelope from Template'
-      },
-      {
-        title: 'Create Template'
-      },
-      {
-        title: 'Update Template with Document'
-      },
-    ]
-
     return (
-      <List>
-        {
-          list.map((item, i) => (
-            <ListItem
-              key={i}
-              title={item.title}
-              onPress={() => this.handlePress(item)}
-            />
-          ))
-        }
-      </List>
+      <ScrollView>
+        <List>
+          <SendEnvelopeFromDocument
+            account={this.state.account}
+           />
+          <SendEnvelopeFromDocuments
+            account={this.state.account}
+           />
+          <ListItem
+            title="Send Envelope From Template"
+            onPress={this.handleSendEnvelopeFromTemplate}
+          />
+          <ListItem
+            title="View Folders and Envelopes"
+            onPress={this.handleViewFolder}
+          />
+
+        </List>
+      </ScrollView>
     )
  }
 

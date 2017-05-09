@@ -1,5 +1,5 @@
 
-# DocuSign Esignature React Native Sample App 
+# DocuSign eSignature React Native Sample App 
 
 
 

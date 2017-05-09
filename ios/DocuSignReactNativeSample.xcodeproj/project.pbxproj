@@ -48,6 +48,7 @@
 		B165D108E80B41B5999D1A03 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 25B38D2163D34A9EB3FEE658 /* FontAwesome.ttf */; };
 		B8F2B832045543598CAF9011 /* libRNDocumentPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C4AD468EC564CA8A5A6F2E8 /* libRNDocumentPicker.a */; };
 		CC2D6BB1C06A4DDE8DE40D5E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB74DBAFC2974628B40A00D7 /* MaterialIcons.ttf */; };
+		F00A724D1EC166E4001DD920 /* blank.pdf in Resources */ = {isa = PBXBuildFile; fileRef = F00A724C1EC166E4001DD920 /* blank.pdf */; };
 		F82EDE7C1BE447798377720A /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8A58A6111F454BEBA676CE90 /* Octicons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -304,6 +305,7 @@
 		BB74DBAFC2974628B40A00D7 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D2DBBC4DD17442548A9280B2 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		E0840D4C055C4754BF3D3BF2 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
+		F00A724C1EC166E4001DD920 /* blank.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = blank.pdf; sourceTree = "<group>"; };
 		FC13957A416A4308BA238FF0 /* RNDocumentPicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDocumentPicker.xcodeproj; path = "../node_modules/react-native-document-picker/ios/RNDocumentPicker.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -519,6 +521,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				F00A724C1EC166E4001DD920 /* blank.pdf */,
 				13B07FAE1A68108700A75B9A /* DocuSignReactNativeSample */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* DocuSignReactNativeSampleTests */,
@@ -980,6 +983,7 @@
 				68800A991CAC4EE1ADC33811 /* MaterialCommunityIcons.ttf in Resources */,
 				CC2D6BB1C06A4DDE8DE40D5E /* MaterialIcons.ttf in Resources */,
 				F82EDE7C1BE447798377720A /* Octicons.ttf in Resources */,
+				F00A724D1EC166E4001DD920 /* blank.pdf in Resources */,
 				417CFF10310F4E4BACA38433 /* SimpleLineIcons.ttf in Resources */,
 				3B3D8D2787884622A9846703 /* Zocial.ttf in Resources */,
 			);

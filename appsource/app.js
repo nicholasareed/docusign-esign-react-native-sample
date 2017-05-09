@@ -25,26 +25,30 @@ global.docusign = docusign;
 
 // Get previous info from Storage
 // - todo
-
-
-import InitScreen from './components/InitScreen.js';
 import HomeScreen from './components/home/home.js';
 import LoginScreen from './components/user/login.js';
 import LoginOAuthScreen from './components/user/loginOAuth';
 import LoginUsernamePasswordScreen from './components/user/loginUsernamePassword';
 import AccountsScreen from './components/accounts/accounts.js';
 import SendFormScreen from './components/home/sendForm.js';
-import EmbeddedSigningScreen from './components/home/embeddedSigning.js';
+import SendEnvelopeFromTemplateScreen from './components/home/SendEnvelopeFromTemplate.js';
+import ViewFoldersScreen from './components/home/ViewFolders.js';
+import ViewFolderScreen from './components/home/ViewFolder.js';
+import ViewEnvelopeScreen from './components/home/ViewEnvelope.js';
+import EmbeddedSigningScreen from './components/home/EmbeddedSigning.js';
 
 
 var AppNavigator = StackNavigator({
-  Init: { screen: InitScreen },
   Login: { screen: LoginScreen },
   LoginOAuth: { screen: LoginOAuthScreen },
   LoginUsernamePassword: { screen: LoginUsernamePasswordScreen },
   Home: { screen: HomeScreen },
   Accounts: { screen: AccountsScreen },
   SendForm: { screen: SendFormScreen },
+  SendEnvelopeFromTemplate: { screen: SendEnvelopeFromTemplateScreen },
+  ViewFolders: { screen: ViewFoldersScreen },
+  ViewFolder: { screen: ViewFolderScreen },
+  ViewEnvelope: { screen: ViewEnvelopeScreen },
   EmbeddedSigning: { screen: EmbeddedSigningScreen }
 },{
   headerMode: 'screen'

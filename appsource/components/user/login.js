@@ -22,13 +22,6 @@ const { width, height } = Dimensions.get("window");
 
 import { NavigationActions } from 'react-navigation'
 
-// const homeReset = NavigationActions.reset({
-//   index: 0,
-//   actions: [
-//     NavigationActions.navigate({ routeName: 'Home'})
-//   ]
-// })
-
 import RNFetchBlob from 'react-native-fetch-blob'
 // android
 const FilePickerManager = require('NativeModules').FilePickerManager;

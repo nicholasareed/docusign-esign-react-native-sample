@@ -51,7 +51,8 @@ export default class EmbeddedSigningScreen extends React.Component {
 
     if(navState.url.indexOf(this.state.returnUrl) === 0){
       // alert('done');
-      this.props.navigation.dispatch( homeReset );
+      // this.props.navigation.dispatch( homeReset );
+      this.props.navigation.goBack(); //( homeReset );
     }
 
   }
