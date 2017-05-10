@@ -16,7 +16,6 @@ import { NavigationActions } from 'react-navigation'
 
 
 import SendEnvelopeFromDocument from './SendEnvelopeFromDocument';
-import SendEnvelopeFromDocuments from './SendEnvelopeFromDocuments';
 import ViewFolder from './ViewFolder';
 
 
@@ -57,9 +56,6 @@ export default class HomeScreen extends React.Component {
       <ScrollView>
         <List>
           <SendEnvelopeFromDocument
-            account={this.state.account}
-           />
-          <SendEnvelopeFromDocuments
             account={this.state.account}
            />
           <ListItem
