@@ -12,6 +12,8 @@ import {
 
 import { List, ListItem } from 'react-native-elements'
 
+import Toast from 'react-native-root-toast'
+
 import { NavigationActions } from 'react-navigation'
 
 import moment from 'moment';
@@ -40,7 +42,7 @@ export default class SendTemplateScreen extends React.Component {
     this.fetchExistingTemplate = this.fetchExistingTemplate.bind(this);
     this.handleInsertTemplate = this.handleInsertTemplate.bind(this);
     this.handleSendEnvelopeFromTemplate = this.handleSendEnvelopeFromTemplate.bind(this);
-
+    this.createRecipientView = this.createRecipientView.bind(this);
   }
 
   componentDidMount(){
@@ -153,7 +155,99 @@ export default class SendTemplateScreen extends React.Component {
   }
 
   handleSendEnvelopeFromTemplate(){
-    alert(2);
+
+    var envDef = new docusign.EnvelopeDefinition();
+    envDef.emailSubject = 'Test Template1';
+    envDef.emailBlurb = 'test email body';
+    envDef.templateId = this.state.remoteTemplate.templateId;
+
+    // create a template role with a valid templateId and roleName and assign signer info
+    var tRoleApplicant = new docusign.TemplateRole();
+    // tRoleApplicant.recipientId = "1";
+    tRoleApplicant.roleName = 'awesomesigner';
+    tRoleApplicant.name = 'RN User';
+    tRoleApplicant.email = this.props.navigation.state.params.account.email;
+    tRoleApplicant.clientUserId = '1';
+    tRoleApplicant.recipientId = '1';
+
+    var tabList = {
+      text: [],
+      number: []
+    };
+    tabList.text.push(docusign.helpers.makeTab('Text', {
+      tabLabel: 'Text1',
+      value: "testing this input!"
+    }));
+
+    // Set default Tab values in template
+    var tabs = new docusign.TemplateTabs();
+    tabs.textTabs = tabList.text;
+    tRoleApplicant.tabs = tabs;
+
+
+    // create a list of template roles and add our newly created role
+    var templateRolesList = [];
+    templateRolesList.push(tRoleApplicant);
+
+    // assign template role(s) to the envelope
+    envDef.templateRoles = templateRolesList;
+
+    // send the envelope by setting |status| to "sent". To save as a draft set to "created"
+    // - note that the envelope will only be 'sent' when it reaches the DocuSign server with the 'sent' status (not in the following call)
+    envDef.status = 'sent';
+
+    Toast.show('Creating Envelope');
+
+    // instantiate a new EnvelopesApi object
+    var envelopesApi = new docusign.EnvelopesApi();
+    envelopesApi.createEnvelope(this.props.navigation.state.params.account.accountId, {'envelopeDefinition': envDef}, (error, envelopeSummary, response) => {
+      if (error) {
+        console.error('Error: ' + response);
+        console.error(envelopeSummary);
+        res.send('Error creating envelope, please try again');
+        return;
+      }
+
+
+      var envelopeId = envelopeSummary.envelopeId;
+
+      this.createRecipientView(envelopeId);
+
+    });
+
+  }
+
+  createRecipientView(envelopeId){
+
+    // Create RecipientView
+    var returnUrl = {};
+    returnUrl.returnUrl = 'https://www.docusign.com/devcenter';
+    returnUrl.authenticationMethod = 'email';
+    returnUrl.userName = 'RN User';
+    returnUrl.email = this.props.navigation.state.params.account.email;
+    returnUrl.clientUserId = '1';
+    returnUrl.recipientId = '1';
+
+    Toast.show('Getting Signing View');
+
+    var envelopesApi = new docusign.EnvelopesApi();
+    envelopesApi.createRecipientView(this.props.navigation.state.params.account.accountId, envelopeId, {recipientViewRequest:returnUrl}, (err, returnUrlResponse, response) => {
+      if(err){
+        alert('Error: ' + response.status);
+        console.error(err);
+        return;
+      }
+
+      // redirect to the embedded signing page
+
+      this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'EmbeddedSigning', params: {
+        url: returnUrlResponse.url,
+        returnUrl: returnUrl.returnUrl
+      }}) );
+
+
+    });
+
   }
 
   render() {

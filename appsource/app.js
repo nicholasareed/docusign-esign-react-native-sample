@@ -19,7 +19,9 @@ import { StackNavigator } from 'react-navigation';
 // global.DSBridge = global.DocuSignBridge = DocuSignBridge;
 
 
-var docusign = require('docusign-esign-react-native');
+import docusign from 'docusign-esign-react-native'
+import docusignHelpers from './helpers.js'
+docusign.helpers = docusignHelpers;
 global.docusign = docusign;
 
 

@@ -13,7 +13,7 @@ import { List, ListItem } from 'react-native-elements'
 
 import { NavigationActions } from 'react-navigation'
 
-import Toast from 'react-native-root-toast';
+import Toast from 'react-native-root-toast'
 
 import ActionSheet from 'react-native-actionsheet'
 
@@ -39,6 +39,7 @@ export default class ExampleListItem extends React.Component {
     this.handleASPress = this.handleASPress.bind(this)
     this.sendEnvelope = this.sendEnvelope.bind(this);
     this.handleSendFromDocument = this.handleSendFromDocument.bind(this);
+    this.createRecipientView = this.createRecipientView.bind(this);
   }
 
   handleSendFromDocument(){
@@ -213,43 +214,50 @@ export default class ExampleListItem extends React.Component {
     var envelopesApi = new docusign.EnvelopesApi();
 
     // call the createEnvelope() API
-    envelopesApi.createEnvelope(this.state.account.accountId, {'envelopeDefinition': envDef}, (err, envelopeInfo, response) => {
+    envelopesApi.createEnvelope(this.state.account.accountId, {'envelopeDefinition': envDef}, (err, envelopeSummary, response) => {
       if (err) {
         return next(err);
       }
-      console.log('EnvelopeSummary: ' + JSON.stringify(envelopeInfo));
+      console.log('EnvelopeSummary: ' + JSON.stringify(envelopeSummary));
 
-      var envelopeId = envelopeInfo.envelopeId;
+      var envelopeId = envelopeSummary.envelopeId;
 
-      var returnUrl = {};
-      returnUrl.returnUrl = 'https://www.docusign.com/devcenter';
-      returnUrl.authenticationMethod = 'email';
-      returnUrl.email = this.state.account.email;
-      returnUrl.userName = 'RN User';
-      returnUrl.clientUserId = '1';
-      returnUrl.recipientId = '1';
-
-      Toast.show('Getting Signing View');
-
-      var envelopesApi = new docusign.EnvelopesApi();
-      envelopesApi.createRecipientView(this.state.account.accountId, envelopeId, {recipientViewRequest:returnUrl}, (err, returnUrlResponse, response) => {
-        if(err){
-          alert('Error: ' + response.status);
-          console.error(err);
-          return;
-        }
-
-        // redirect to the embedded signing page
-
-        this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'EmbeddedSigning', params: {
-          url: returnUrlResponse.url,
-          returnUrl: returnUrl.returnUrl
-        }}) );
-
-
-      });
+      this.createRecipientView(envelopeId);
 
     })
+
+  }
+
+  createRecipientView(envelopeId){
+
+    // Create RecipientView
+    var returnUrl = {};
+    returnUrl.returnUrl = 'https://www.docusign.com/devcenter';
+    returnUrl.authenticationMethod = 'email';
+    returnUrl.email = this.state.account.email;
+    returnUrl.userName = 'RN User';
+    returnUrl.clientUserId = '1';
+    returnUrl.recipientId = '1';
+
+    Toast.show('Getting Signing View');
+
+    var envelopesApi = new docusign.EnvelopesApi();
+    envelopesApi.createRecipientView(this.state.account.accountId, envelopeId, {recipientViewRequest:returnUrl}, (err, returnUrlResponse, response) => {
+      if(err){
+        alert('Error: ' + response.status);
+        console.error(err);
+        return;
+      }
+
+      // redirect to the embedded signing page
+
+      this.props.navigation.dispatch( NavigationActions.navigate({ routeName: 'EmbeddedSigning', params: {
+        url: returnUrlResponse.url,
+        returnUrl: returnUrl.returnUrl
+      }}) );
+
+
+    });
 
   }
 
