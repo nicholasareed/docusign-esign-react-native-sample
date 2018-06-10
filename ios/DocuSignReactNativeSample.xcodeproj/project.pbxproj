@@ -35,6 +35,7 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* DocuSignReactNativeSampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DocuSignReactNativeSampleTests.m */; };
 		313B06541B5D4B5C9936C820 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0840D4C055C4754BF3D3BF2 /* libRNFetchBlob.a */; };
+		38D0EA98593A4B829B5B561C /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 399BC43A2C7C4EFAA98A728D /* Feather.ttf */; };
 		3B3D8D2787884622A9846703 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60BEDAFE8EE8484B91DA7CF4 /* Zocial.ttf */; };
 		3DCE8FB0646249DC837D90EB /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A4F25E3A5AE645EFAF765481 /* EvilIcons.ttf */; };
 		417CFF10310F4E4BACA38433 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 486C3AD13BC2430CB720348E /* SimpleLineIcons.ttf */; };
@@ -289,6 +290,7 @@
 		2C4AD468EC564CA8A5A6F2E8 /* libRNDocumentPicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDocumentPicker.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* DocuSignReactNativeSample-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DocuSignReactNativeSample-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* DocuSignReactNativeSample-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DocuSignReactNativeSample-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		399BC43A2C7C4EFAA98A728D /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		3EDD4F34F8454033A3F3DED0 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		486C3AD13BC2430CB720348E /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 		9FE4E9373ECC4602B3114D4C /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		A23378B5F4CA4EA4B8D767D7 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		A4F25E3A5AE645EFAF765481 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		B5A80B8E20CCA79800AEFBE7 /* DocuSignReactNativeSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = DocuSignReactNativeSample.entitlements; path = DocuSignReactNativeSample/DocuSignReactNativeSample.entitlements; sourceTree = "<group>"; };
 		BB74DBAFC2974628B40A00D7 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		D2DBBC4DD17442548A9280B2 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		E0840D4C055C4754BF3D3BF2 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
@@ -444,6 +447,7 @@
 		13B07FAE1A68108700A75B9A /* DocuSignReactNativeSample */ = {
 			isa = PBXGroup;
 			children = (
+				B5A80B8E20CCA79800AEFBE7 /* DocuSignReactNativeSample.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -527,6 +531,7 @@
 				00E356EF1AD99517003FC87E /* DocuSignReactNativeSampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				BAFEF8CBDC064CB4B7F2C140 /* Resources */,
+				B5A80B7120CCA73500AEFBE7 /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -543,6 +548,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B5A80B7120CCA73500AEFBE7 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				2C4AD468EC564CA8A5A6F2E8 /* libRNDocumentPicker.a */,
+				E0840D4C055C4754BF3D3BF2 /* libRNFetchBlob.a */,
+				65270282E8B14BD481E24E6C /* libRNVectorIcons.a */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		BAFEF8CBDC064CB4B7F2C140 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +571,7 @@
 				8A58A6111F454BEBA676CE90 /* Octicons.ttf */,
 				486C3AD13BC2430CB720348E /* SimpleLineIcons.ttf */,
 				60BEDAFE8EE8484B91DA7CF4 /* Zocial.ttf */,
+				399BC43A2C7C4EFAA98A728D /* Feather.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -671,6 +687,14 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 9EVL4979PA;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -986,6 +1010,7 @@
 				F00A724D1EC166E4001DD920 /* blank.pdf in Resources */,
 				417CFF10310F4E4BACA38433 /* SimpleLineIcons.ttf in Resources */,
 				3B3D8D2787884622A9846703 /* Zocial.ttf in Resources */,
+				38D0EA98593A4B829B5B561C /* Feather.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1165,8 +1190,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DocuSignReactNativeSample/DocuSignReactNativeSample.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 9EVL4979PA;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-document-picker/ios/RNDocumentPicker",
@@ -1180,6 +1207,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.TouchUDoc;
 				PRODUCT_NAME = DocuSignReactNativeSample;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1189,7 +1217,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DocuSignReactNativeSample/DocuSignReactNativeSample.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9EVL4979PA;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-document-picker/ios/RNDocumentPicker",
@@ -1203,6 +1233,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.TouchUDoc;
 				PRODUCT_NAME = DocuSignReactNativeSample;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
