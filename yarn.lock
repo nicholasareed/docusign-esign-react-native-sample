@@ -3401,18 +3401,6 @@ react-native@0.48.0:
     xmldoc "^0.4.0"
     xpipe "^1.0.5"
     yargs "^6.4.0"
-
-"react-navigation@git+https://github.com/react-community/react-navigation.git#7edd9a7":
-  version "1.0.0-beta.7"
-  resolved "git+https://github.com/react-community/react-navigation.git#7edd9a79aab07a5da969be2d4e254f7524faad03"
-  dependencies:
-    clamp "^1.0.1"
-    fbjs "^0.8.5"
-    hoist-non-react-statics "^1.2.0"
-    path-to-regexp "^1.7.0"
-    react-native-drawer-layout-polyfill "^1.0.4"
-    react-native-tab-view "^0.0.57"
-
 react-proxy@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/react-proxy/-/react-proxy-1.1.8.tgz#9dbfd9d927528c3aa9f444e4558c37830ab8c26a"

@@ -126,6 +126,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-touch-id')
     compile project(':react-native-vector-icons')
     compile project(':react-native-file-picker')
     compile project(':react-native-fetch-blob')
