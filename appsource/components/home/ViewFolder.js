@@ -7,8 +7,10 @@ import {
   Switch,
   Image,
   View,
-  ScrollView
+  ScrollView,
+  AlertIOS
 } from 'react-native';
+import  TouchID from 'react-native-touch-id'
 
 import { List, ListItem } from 'react-native-elements'
 
@@ -26,7 +28,8 @@ export default class ViewFolderScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      folderItems: []
+      folderItems: [],
+      touchID: false
     }
 
     this.handleFolderEnvelope = this.handleFolderEnvelope.bind(this);
@@ -58,6 +61,16 @@ export default class ViewFolderScreen extends React.Component {
       envelope: envelope
     }}) );
   }
+  _pressHandler() {
+    TouchID.authenticate('to demo this react-native component')
+      .then(success => {
+        AlertIOS.alert('Authenticated Successfully');
+        this.setState({touchID: true})
+      })
+      .catch(error => {
+        AlertIOS.alert('Authentication Failed');
+      });
+  }
 
   render() {
 
@@ -70,7 +83,7 @@ export default class ViewFolderScreen extends React.Component {
                 key={i}
                 title={envelope.subject}
                 subtitle={moment(envelope.createdDateTime).format('MMM Do, h:mma') + ' - ' + envelope.envelopeId.substr(0,11) + '...'}
-                onPress={o => this.handleFolderEnvelope(envelope)}
+                onPress={o => !this.state.touchID ? this._pressHandler() : this.handleFolderEnvelope(envelope)}
               />
             ))
           }
