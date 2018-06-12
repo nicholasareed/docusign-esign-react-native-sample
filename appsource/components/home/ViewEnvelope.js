@@ -7,8 +7,11 @@ import {
   Switch,
   Image,
   View,
-  ScrollView
+  ScrollView,
+  AlertIOS
 } from 'react-native';
+
+import axios from 'axios'
 
 import { List, ListItem } from 'react-native-elements'
 
@@ -24,7 +27,8 @@ export default class ViewFolderScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      folderItems: []
+      folderItems: [],
+      envelopes: []
     }
 
     this.handleFolderEnvelope = this.handleFolderEnvelope.bind(this);
@@ -32,28 +36,31 @@ export default class ViewFolderScreen extends React.Component {
   }
 
   componentDidMount(){
-    // Load envelopes for folder
+   // Load envelopes for folder
     
-
-    // // instantiate a new EnvelopesApi object
-    // var foldersApi = new docusign.FoldersApi();
-    // foldersApi.listItems(this.props.navigation.state.params.account.accountId, this.props.navigation.state.params.folder.folderId, {}, (err, folderItemsInfo, response) => {
-    //   if(err){
-    //     return alert('err: ' + JSON.stringify(err));
-    //   }
-
-    //   // alert(JSON.stringify(folderItemsInfo,null,2));
-    //   this.setState({
-    //     folderItems: folderItemsInfo.folderItems
-    //   });
-
-    // });
+    
+    // instantiate a new EnvelopesApi object
+    
+  
+    let foldersApi = new docusign.FoldersApi();
+    foldersApi.listItems(this.props.navigation.state.params.account.accountId, this.props.navigation.state.params.folder.folderId, {}, (err, folderItemsInfo, response) => {
+      if(err){
+        return alert('err: ' + JSON.stringify(err));
+      }
+      
+      // alert(JSON.stringify(folderItemsInfo,null,2));
+      this.setState({
+        folderItems: folderItemsInfo.folderItems
+      });
+      
+      // axios.get('https://demo.docusign.net/restapi/v2/accounts/'+ this.props.navigation.state.params.account.accountId + '/envelopes/0891cbcf-2b3e-47eb-a752-31b31156634f')
+      //   .then(response => AlertIOS(response))
+    });
 
   }
 
   handleFolderEnvelope(folder){
-    // alert(JSON.stringify(folder));
-    // alert(folder.folderId);
+    console.log(JSON.stringify(folder));
   }
 
   render() {
@@ -73,7 +80,6 @@ export default class ViewFolderScreen extends React.Component {
             </Text>
           </View>
         </View>
-
         <List>
           {
             this.state.folderItems.map((envelope, i) => (

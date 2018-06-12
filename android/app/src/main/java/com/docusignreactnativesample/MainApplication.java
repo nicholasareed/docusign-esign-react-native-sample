@@ -3,6 +3,7 @@ package com.docusignreactnativesample;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnfingerprint.FingerprintAuthPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.filepicker.FilePickerPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
@@ -27,6 +28,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FingerprintAuthPackage(),
             new VectorIconsPackage(),
             new FilePickerPackage(),
             new RNFetchBlobPackage(),
